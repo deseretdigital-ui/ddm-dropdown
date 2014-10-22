@@ -11,7 +11,7 @@ var scssFiles = './src/scss/**/*.scss';
 gulp.task('scss', function () {
   return gulp.src('./src/scss/dropdown.scss')
     .pipe(plugins.sass())
-    .pipe(gulp.dest('./build'));
+    .pipe(gulp.dest('./dist'));
 });
 
 
@@ -21,7 +21,7 @@ var staticFiles = [
 ];
 gulp.task('static', function () {
   return gulp.src(staticFiles, { base: './src' })
-    .pipe(gulp.dest('./build'));
+    .pipe(gulp.dest('./dist'));
 });
 
 

@@ -1,3 +1,7 @@
+.ddm-dropdown {
+  position: relative;
+}
+
 .ddm-dropdown__body {
   display: none;
 }
@@ -11,6 +15,7 @@
 }
 
 .ddm-dropdown__toggle--with-arrow:before {
+  position: relative;
   $width: 14px;
 
   content: ""; /* force empty :after element creation */

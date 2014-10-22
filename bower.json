@@ -6,8 +6,8 @@
   ],
   "description": "Dropdown component for DDM projects.",
   "main": [
-    "build/dropdown.js",
-    "build/dropdown.css"
+    "dist/dropdown.js",
+    "dist/dropdown.css"
   ],
   "moduleType": [
     "globals"

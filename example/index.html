@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+
+  <title>DDM Dropdown Example</title>
+  <meta name="description" content="DDM Dropdown Example" />
+
+  <script src="../bower_components/jquery/dist/jquery.min.js"></script>
+
+  <link href="../dist/dropdown.css" rel="stylesheet" />
+  <script src="../dist/dropdown.js"></script>
+
+  <link href="styles.css" rel="stylesheet" />
+</head>
+<body>
+
+  <div class="my-dropdowns">
+    <div class="my-dropdown">
+      <div class="my-dropdown__toggle">Dropdown 1</div>
+      <ul class="my-dropdown__content">
+        <li><a href="#">Item 1</a></li>
+        <li><a href="#">Item 2</a></li>
+        <li><a href="#">Item 3</a></li>
+        <li><a href="#">Item 4</a></li>
+        <li><a href="#">Item 5</a></li>
+      </ul>
+    </div>
+
+    <div class="my-dropdown">
+      <div class="my-dropdown__toggle">Dropdown 2</div>
+      <ul class="my-dropdown__content">
+        <li><a href="#">Item 1</a></li>
+        <li><a href="#">Item 2</a></li>
+        <li><a href="#">Item 3</a></li>
+        <li><a href="#">Item 4</a></li>
+        <li><a href="#">Item 5</a></li>
+      </ul>
+    </div>
+
+    <div class="my-dropdown my-dropdown--no-hover">
+      <div class="my-dropdown__toggle">Dropdown 3</div>
+      <ul class="my-dropdown__content">
+        <li><a href="#">Item 1</a></li>
+        <li><a href="#">Item 2</a></li>
+        <li><a href="#">Item 3</a></li>
+        <li><a href="#">Item 4</a></li>
+        <li><a href="#">Item 5</a></li>
+      </ul>
+    </div>
+
+    <div class="my-dropdown my-dropdown--no-hover">
+      <div class="my-dropdown__toggle">Dropdown 4</div>
+      <ul class="my-dropdown__content">
+        <li><a href="#">Item 1</a></li>
+        <li><a href="#">Item 2</a></li>
+        <li><a href="#">Item 3</a></li>
+        <li><a href="#">Item 4</a></li>
+        <li><a href="#">Item 5</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <script>
+  $(function () {
+    $('.my-dropdown').each(function (index, dropdown) {
+      var $dropdown = $(dropdown);
+      ddm.dropdown($dropdown, {
+        toggle: '> .my-dropdown__toggle',
+        body: '> .my-dropdown__content',
+        hover: !$dropdown.hasClass('my-dropdown--no-hover')
+      });
+    })
+  });
+  </script>
+
+</body>
+</html>
