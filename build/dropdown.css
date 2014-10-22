@@ -1,0 +1,26 @@
+.dropdown__body {
+  display: none; }
+
+.dropdown--open .dropdown__body {
+  display: block; }
+
+.dropdown__toggle {
+  position: relative; }
+
+.dropdown__toggle--with-arrow:before {
+  content: "";
+  /* force empty :after element creation */
+  /* border is used to create marker */
+  border-bottom: 7px solid;
+  /* erase the corners to make triangle */
+  border-left: 7px solid transparent;
+  border-right: 7px solid transparent;
+  /* then we position below parent */
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  margin-left: -7px;
+  display: none; }
+
+.dropdown--open .dropdown__toggle--with-arrow:before {
+  display: block; }
