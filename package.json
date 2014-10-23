@@ -11,6 +11,7 @@
   "homepage": "http://github.com/deseretdigital-ui/ddm-dropdown",
   "devDependencies": {
     "gulp": "^3.8.8",
+    "gulp-gh-pages": "^0.4.0",
     "gulp-load-plugins": "^0.7.0",
     "gulp-sass": "^1.0.0"
   }
