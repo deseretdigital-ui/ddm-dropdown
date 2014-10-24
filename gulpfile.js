@@ -1,9 +1,10 @@
 var gulp = require('gulp');
 var plugins = require('gulp-load-plugins')();
+plugins.ghpages = require('gulp-gh-pages');
 
 
 
-gulp.task('default', ['scss', 'static']);
+gulp.task('default', ['scss', 'static', 'example']);
 
 
 
@@ -22,6 +23,26 @@ var staticFiles = [
 gulp.task('static', function () {
   return gulp.src(staticFiles, { base: './src' })
     .pipe(gulp.dest('./dist'));
+});
+
+
+
+gulp.task('example', ['scss', 'static'], function () {
+  var files = [
+    './dist/*',
+    './bower_components/jquery/dist/jquery.min.js'
+  ];
+  gulp.src(files)
+    .pipe(gulp.dest('./example'));
+});
+
+
+
+var ghpagesFiles = './example/**/*';
+gulp.task('ghpages', ['example'], function () {
+  var options = {};
+  return gulp.src(ghpagesFiles)
+    .pipe(plugins.ghpages(options));
 });
 
 
