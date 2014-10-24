@@ -27,7 +27,8 @@
   display: none; }
 
 .ddm-dropdown--open .ddm-dropdown__toggle--with-arrow:before {
-  display: block; }
+  display: block;
+  content: "  "; }
 
 /*body*/
 .ddm-dropdown-is-open {

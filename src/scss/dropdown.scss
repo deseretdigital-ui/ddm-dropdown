@@ -38,6 +38,10 @@
 
 .ddm-dropdown--open .ddm-dropdown__toggle--with-arrow:before {
   display: block;
+
+  // force pseudo element redraw in ie8
+  // see http://stackoverflow.com/questions/8703799/forcing-ie8-to-rerender-repaint-before-after-pseudo-elements
+  content: "  ";
 }
 
 /*body*/.ddm-dropdown-is-open {
