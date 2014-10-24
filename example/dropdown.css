@@ -28,6 +28,8 @@
 
 .ddm-dropdown--open .ddm-dropdown__toggle--with-arrow:before {
   display: block; }
+  .lte-ie8 .ddm-dropdown--open .ddm-dropdown__toggle--with-arrow:before {
+    display: none; }
 
 /*body*/
 .ddm-dropdown-is-open {
