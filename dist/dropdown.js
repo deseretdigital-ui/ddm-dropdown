@@ -2,6 +2,10 @@
 var ddm = ddm || {};
 ddm.dropdown = (function ($) {
 
+  // detect ie8. Used to disable arrow styles.
+  // see http://browserhacks.com/#hack-a43251169f364d54a7a8d9fe0686267d
+  $('html').toggleClass('lte-ie8', '\v'=='v');
+
   // dropdown constructor
   var Dropdown = function ($element, options) {
 
