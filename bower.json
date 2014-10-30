@@ -1,14 +1,11 @@
 {
   "name": "ddm-dropdown",
-  "version": "0.0.3",
   "authors": [
-    "Joshua Stoutenburg <jstoutenburg@deseretdigital.com>"
+    "Joshua Stoutenburg <jstoutenburg@deseretdigital.com>",
+    "Russell Ahlstrom <rahlstrom@deseretdigital.com>"
   ],
   "description": "Dropdown component for DDM projects.",
-  "main": [
-    "dist/dropdown.js",
-    "dist/dropdown.css"
-  ],
+  "main": "dist/**/*",
   "moduleType": [
     "globals"
   ],
@@ -25,7 +22,23 @@
     "bower_components",
     "src"
   ],
+  "overrides": {
+    "react": {
+      "main": [
+        "react-with-addons.js",
+        "JSXTransformer.js"
+      ]
+    },
+    "es5-shim": {
+      "main": [
+        "es5-shim.js",
+        "es5-sham.js"
+      ]
+    }
+  },
   "dependencies": {
-    "jquery": ">=1.7 <3"
+    "jquery": ">=1.7 <3",
+    "react": "~0.12",
+    "es5-shim": "~4.0.3"
   }
 }

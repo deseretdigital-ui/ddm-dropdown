@@ -8,7 +8,7 @@ function getDdmDropdownId() {
   return ddmDropdownId++;
 }
 
-var Dropdown = React.createClass({displayName: 'Dropdown',
+var Dropdown = React.createClass({
   propTypes: {
     title: React.PropTypes.string,
     className: React.PropTypes.string,
@@ -89,15 +89,15 @@ var Dropdown = React.createClass({displayName: 'Dropdown',
 
     if (toggle === null) {
       toggle = (
-        React.createElement(DropdownToggle, {
-          href: this.props.url, 
-          open: this.state.open, 
-          arrow: this.props.arrow, 
-          onToggleClick: this.handleClick, 
-          ref: "dropdownToggle"
-        }, 
-          this.props.title
-        )
+        <DropdownToggle
+          href={this.props.url}
+          open={this.state.open}
+          arrow={this.props.arrow}
+          onToggleClick={this.handleClick}
+          ref="dropdownToggle"
+        >
+          {this.props.title}
+        </DropdownToggle>
       );
     }
 
@@ -125,9 +125,9 @@ var Dropdown = React.createClass({displayName: 'Dropdown',
 
     if (body === null) {
       body = (
-        React.createElement(DropdownBody, {links: this.props.links, ref: "dropdownBody"}, 
-          displayChildren
-        )
+        <DropdownBody links={this.props.links} ref="dropdownBody">
+          {displayChildren}
+        </DropdownBody>
       );
     }
 
@@ -150,14 +150,14 @@ var Dropdown = React.createClass({displayName: 'Dropdown',
     var body = this.renderBody();
 
     return (
-      React.createElement("div", {
-        className: cx(dropdownClasses), 
-        onMouseEnter: this.handleMouseEnter, 
-        onMouseLeave: this.handleMouseLeave
-      }, 
-        toggle, 
-        body
-      )
+      <div
+        className={cx(dropdownClasses)}
+        onMouseEnter={this.handleMouseEnter}
+        onMouseLeave={this.handleMouseLeave}
+      >
+        {toggle}
+        {body}
+      </div>
     );
   },
 
@@ -259,7 +259,7 @@ var Dropdown = React.createClass({displayName: 'Dropdown',
   }
 });
 
-var DropdownToggle = React.createClass({displayName: 'DropdownToggle',
+var DropdownToggle = React.createClass({
   propTypes: {
     href: React.PropTypes.string,
     arrow: React.PropTypes.bool,
@@ -288,9 +288,9 @@ var DropdownToggle = React.createClass({displayName: 'DropdownToggle',
     var href = this.props.href || '#';
 
     return (
-      React.createElement("a", {href: href, className: cx(toggleClasses), onClick: this.handleClick}, 
-        this.props.children
-      )
+      <a href={href} className={cx(toggleClasses)} onClick={this.handleClick}>
+        {this.props.children}
+      </a>
     );
   },
 
@@ -306,7 +306,7 @@ var DropdownToggle = React.createClass({displayName: 'DropdownToggle',
   }
 });
 
-var DropdownBody = React.createClass({displayName: 'DropdownBody',
+var DropdownBody = React.createClass({
   propTypes: {
     links: React.PropTypes.array
   },
@@ -323,24 +323,24 @@ var DropdownBody = React.createClass({displayName: 'DropdownBody',
 
     renderedLinks = this.props.links.map(function(link, i) {
       return (
-        React.createElement("li", {className: "ddm-dropdown__menu-item", key: 'link' + i}, 
-          React.createElement("a", {
-            href: link.href, 
-            title: link.title, 
-            onClick: link.onClick, 
-            className: "ddm-dropdown__link"
-          }, 
-            link.link
-          )
-        )
+        <li className="ddm-dropdown__menu-item" key={'link' + i}>
+          <a
+            href={link.href}
+            title={link.title}
+            onClick={link.onClick}
+            className="ddm-dropdown__link"
+          >
+            {link.link}
+          </a>
+        </li>
       );
     });
 
     if (renderedLinks.length > 0) {
       renderedLinkList = (
-        React.createElement("ul", {className: "ddm-dropdown__menu"}, 
-          renderedLinks
-        )
+        <ul className="ddm-dropdown__menu">
+          {renderedLinks}
+        </ul>
       );
     }
 
@@ -352,10 +352,10 @@ var DropdownBody = React.createClass({displayName: 'DropdownBody',
     var renderedLinkList = this.renderLinkList();
 
     return (
-      React.createElement("div", {className: "ddm-dropdown__body"}, 
-        renderedLinkList, 
-        this.props.children
-      )
+      <div className="ddm-dropdown__body">
+        {renderedLinkList}
+        {this.props.children}
+      </div>
     );
   }
 });
