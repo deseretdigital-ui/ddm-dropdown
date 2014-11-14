@@ -5,10 +5,7 @@
     "Russell Ahlstrom <rahlstrom@deseretdigital.com>"
   ],
   "description": "Dropdown component for DDM projects.",
-  "main": "dist/**/*",
-  "moduleType": [
-    "globals"
-  ],
+  "main": "dist/dropdown.js",
   "keywords": [
     "ui",
     "dropdown",
@@ -20,22 +17,9 @@
     "**/.*",
     "node_modules",
     "bower_components",
-    "src"
+    "src",
+    "gulp"
   ],
-  "overrides": {
-    "react": {
-      "main": [
-        "react-with-addons.js",
-        "JSXTransformer.js"
-      ]
-    },
-    "es5-shim": {
-      "main": [
-        "es5-shim.js",
-        "es5-sham.js"
-      ]
-    }
-  },
   "dependencies": {
     "jquery": ">=1.7 <3",
     "react": "~0.12",

@@ -3,12 +3,9 @@ var webpack = require('gulp-webpack');
 var config = require('../config').webpack;
 var handleErrors = require('../util/handleErrors');
 
-gulp.task("watch", function() {
-    var watchSettings = config.settings;
-    watchSettings.watch = true;
-
+gulp.task("webpack", function() {
     return gulp.src(config.src)
-      .pipe(webpack(watchSettings))
+      .pipe(webpack(config.settings))
       .on('error', handleErrors)
       .pipe(gulp.dest(config.dist))
       .pipe(gulp.dest(config.example));

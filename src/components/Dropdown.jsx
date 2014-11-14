@@ -1,6 +1,8 @@
-/* jshint jquery:true */
-/* global React:false */
-/* exported Dropdown, DropdownToggle, DropdownBody */
+var React = require('react/addons');
+var cx = React.addons.classSet;
+var $ = require('jquery');
+var DropdownToggle = require('./DropdownToggle');
+var DropdownBody = require('./DropdownBody');
 
 var ddmDropdownId = 0;
 
@@ -74,7 +76,6 @@ var Dropdown = React.createClass({
   },
 
   renderToggle: function() {
-    /* jshint quotmark:false */
     var toggle = null;
 
     React.Children.forEach(this.props.children, function(child) {
@@ -105,7 +106,6 @@ var Dropdown = React.createClass({
   },
 
   renderBody: function() {
-    /* jshint quotmark:false */
     var body = null, displayChildren = [];
 
     // Make sure we do not render a dropdownToggle inside of the body
@@ -135,8 +135,6 @@ var Dropdown = React.createClass({
   },
 
   render: function() {
-    /* jshint quotmark:false */
-    var cx = React.addons.classSet;
     var dropdownClasses = {
       'ddm-dropdown': true,
       'ddm-dropdown--open': this.state.open
@@ -259,103 +257,4 @@ var Dropdown = React.createClass({
   }
 });
 
-var DropdownToggle = React.createClass({
-  propTypes: {
-    href: React.PropTypes.string,
-    arrow: React.PropTypes.bool,
-    open: React.PropTypes.bool,
-    onToggleClick: React.PropTypes.func
-  },
-
-  getDefaultProps: function() {
-    return {
-      href: null,
-      arrow: true,
-      open: false,
-      onToggleClick: null
-    };
-  },
-
-  render: function() {
-    /* jshint quotmark:false */
-    var cx = React.addons.classSet;
-
-    var toggleClasses = {
-      'ddm-dropdown__toggle': true,
-      'ddm-dropdown__toggle--with-arrow': this.props.arrow
-    };
-
-    var href = this.props.href || '#';
-
-    return (
-      <a href={href} className={cx(toggleClasses)} onClick={this.handleClick}>
-        {this.props.children}
-      </a>
-    );
-  },
-
-  handleClick: function(e) {
-    if (this.props.href && this.props.open) {
-      return;
-    }
-
-    if (this.props.onToggleClick) {
-      e.preventDefault();
-      this.props.onToggleClick();
-    }
-  }
-});
-
-var DropdownBody = React.createClass({
-  propTypes: {
-    links: React.PropTypes.array
-  },
-
-  getDefaultProps: function() {
-    return {
-      links: []
-    };
-  },
-
-  renderLinkList: function() {
-    /* jshint quotmark:false */
-    var renderedLinks = null, renderedLinkList = null;
-
-    renderedLinks = this.props.links.map(function(link, i) {
-      return (
-        <li className="ddm-dropdown__menu-item" key={'link' + i}>
-          <a
-            href={link.href}
-            title={link.title}
-            onClick={link.onClick}
-            className="ddm-dropdown__link"
-          >
-            {link.link}
-          </a>
-        </li>
-      );
-    });
-
-    if (renderedLinks.length > 0) {
-      renderedLinkList = (
-        <ul className="ddm-dropdown__menu">
-          {renderedLinks}
-        </ul>
-      );
-    }
-
-    return renderedLinkList;
-  },
-
-  render: function() {
-    /* jshint quotmark:false */
-    var renderedLinkList = this.renderLinkList();
-
-    return (
-      <div className="ddm-dropdown__body">
-        {renderedLinkList}
-        {this.props.children}
-      </div>
-    );
-  }
-});
+module.exports = Dropdown;
