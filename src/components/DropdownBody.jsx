@@ -1,13 +1,16 @@
-var React = require('react');
+var React = require('react/addons');
+var cx = React.addons.classSet;
 
 var DropdownBody = React.createClass({
   propTypes: {
-    links: React.PropTypes.array
+    links: React.PropTypes.array,
+    className: React.PropTypes.string
   },
 
   getDefaultProps: function() {
     return {
-      links: []
+      links: [],
+      className: ''
     };
   },
 
@@ -43,8 +46,16 @@ var DropdownBody = React.createClass({
   render: function() {
     var renderedLinkList = this.renderLinkList();
 
+    var bodyClasses = {
+      'ddm-dropdown__body': true
+    };
+
+    this.props.className.split(' ').forEach(function(className) {
+      bodyClasses[className] = true;
+    });
+
     return (
-      <div className="ddm-dropdown__body">
+      <div className={cx(bodyClasses)}>
         {renderedLinkList}
         {this.props.children}
       </div>

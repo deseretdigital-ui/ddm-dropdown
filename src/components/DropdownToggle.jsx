@@ -6,7 +6,8 @@ var DropdownToggle = React.createClass({
     href: React.PropTypes.string,
     arrow: React.PropTypes.bool,
     open: React.PropTypes.bool,
-    onToggleClick: React.PropTypes.func
+    onToggleClick: React.PropTypes.func,
+    className: React.PropTypes.string
   },
 
   getDefaultProps: function() {
@@ -14,7 +15,8 @@ var DropdownToggle = React.createClass({
       href: null,
       arrow: true,
       open: false,
-      onToggleClick: null
+      onToggleClick: null,
+      className: ''
     };
   },
 
@@ -23,6 +25,10 @@ var DropdownToggle = React.createClass({
       'ddm-dropdown__toggle': true,
       'ddm-dropdown__toggle--with-arrow': this.props.arrow
     };
+
+    this.props.className.split(' ').forEach(function(className) {
+      toggleClasses[className] = true;
+    });
 
     var href = this.props.href || '#';
 
