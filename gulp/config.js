@@ -1,24 +1,22 @@
 var dist = './dist';
 var example = './example';
 var src = './src';
+var webpackSettings = require('../webpack.config.js');
 
 module.exports = {
-  sass: {
-    src: src + "/scss/*.scss",
-    dist: dist,
-    example: example,
-    outputStyle: 'compressed'
-  },
-  react: {
-    src: src + "/*.jsx",
-    dist: dist,
-    example: example
-  },
-  bower: {
-    src: './bower_components',
-    example: example + '/bower_components'
+  build: {
+    tasks: ['webpack']
   },
   ghpages: {
     src: example + '/**/*'
+  },
+  watch: {
+    src: src + '/**/*'
+  },
+  webpack: {
+    src: src + '/index.js',
+    dist: dist,
+    example: example,
+    settings: webpackSettings
   }
 };
