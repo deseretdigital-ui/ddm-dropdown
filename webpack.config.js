@@ -19,9 +19,24 @@ module.exports = {
     ]
   },
   externals: {
-    "react": "React",
-    "react/addons": "React",
-    "jquery": "jQuery"
+    "react": {
+      root: "React",
+      commonjs: "react",
+      commonjs2: "react",
+      amd: "react"
+    },
+    "react/addons": {
+      root: "React",
+      commonjs: "react/addons",
+      commonjs2: "react/addons",
+      amd: "react/addons"
+    },
+    "jquery": {
+      root: "jQuery",
+      commonjs: "jquery",
+      commonjs2: "jquery",
+      amd: "jquery"
+    }
   },
   resolve: {
     // you can now require('file') instead of require('file.jsx')
