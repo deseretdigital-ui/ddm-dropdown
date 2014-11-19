@@ -1,3 +1,5 @@
+var webpack = require('webpack')
+
 module.exports = {
   output: {
     filename: 'dropdown.js',
@@ -7,13 +9,12 @@ module.exports = {
     loaders: [
       { test: /\.jsx$/, loader: 'jsx-loader?harmony' },
       {
-        test: /\.scss$/, loader: [
+        test: /\.scss$/, loaders: [
           'style-loader',
-          '!css-loader',
-          '!autoprefixer-loader',
-          '?{browsers:["last 2 version", "> 1%", "ie 8"]}',
-          '!sass-loader'
-        ].join('')
+          'css-loader',
+          'autoprefixer-loader?{browsers:["last 2 version", "> 1%", "ie 8"]}',
+          'sass-loader'
+        ]
       }
     ]
   },
@@ -25,5 +26,8 @@ module.exports = {
   resolve: {
     // you can now require('file') instead of require('file.jsx')
     extensions: ['', '.js', '.jsx']
-  }
+  },
+  plugins: [
+    new webpack.optimize.UglifyJsPlugin()
+  ]
 }
