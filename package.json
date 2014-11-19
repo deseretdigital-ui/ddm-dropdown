@@ -1,6 +1,11 @@
 {
   "name": "ddm-dropdown",
+  "version": "0.1.1",
   "description": "Dropdown component used in Deseret Digital projects.",
+  "authors": [
+    "Russell Ahlstrom",
+    "Josh Stoutenburg"
+  ],
   "repository": {
     "type": "git",
     "url": "https://github.com/deseretdigital-ui/ddm-dropdown"
@@ -9,6 +14,7 @@
     "url": "https://github.com/deseretdigital-ui/ddm-dropdown"
   },
   "homepage": "http://github.com/deseretdigital-ui/ddm-dropdown",
+  "license": "MIT",
   "devDependencies": {
     "autoprefixer-loader": "^1.0.0",
     "css-loader": "^0.9.0",
@@ -22,8 +28,20 @@
     "style-loader": "^0.8.2",
     "webpack": "^1.4.13"
   },
-  "dependencies": {
+  "peerDependencies": {
     "jquery": "1.7 - 2",
     "react": "^0.12.0"
-  }
+  },
+  "main": "src/index.js",
+  "directories": {
+    "lib": "src",
+    "example": "example"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "dropdown",
+    "ddm"
+  ]
 }
