@@ -1,10 +1,10 @@
 {
   "name": "ddm-dropdown",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "Dropdown component used in Deseret Digital projects.",
   "authors": [
     "Russell Ahlstrom",
-    "Josh Stoutenburg"
+    "Josh Stoutenburg <jstoutenburg@deseretdigital.com>"
   ],
   "repository": {
     "type": "git",

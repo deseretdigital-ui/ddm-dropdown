@@ -43,6 +43,11 @@
 .ddm-dropdown__body {
   display: none;
 
+  min-width: 100%;
+  position: absolute;
+  top: 100%;
+  left: 0;
+
   .ddm-dropdown--open & {
     display: block;
   }
