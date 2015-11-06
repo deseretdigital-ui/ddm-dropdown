@@ -1,6 +1,6 @@
 {
   "name": "ddm-dropdown",
-  "version": "0.1.6",
+  "version": "0.1.7",
   "description": "Dropdown component used in Deseret Digital projects.",
   "authors": [
     "Russell Ahlstrom",
@@ -30,7 +30,7 @@
   },
   "peerDependencies": {
     "jquery": "1.7 - 2",
-    "react": "^0.12.0"
+    "react": ">=0.12.0 <0.14.0"
   },
   "main": "dist/dropdown.js",
   "directories": {
