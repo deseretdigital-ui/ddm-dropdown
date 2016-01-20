@@ -1,4 +1,5 @@
 node_modules
 bower_components
-example
+example/*
 !example/index.html
+!example/demo.jsx

@@ -1,4 +1,8 @@
-var webpack = require('webpack')
+var webpack = require('webpack');
+
+var definePlugin = new webpack.DefinePlugin({
+  'process.env': {'NODE_ENV': JSON.stringify('prod')}
+});
 
 module.exports = {
   output: {
@@ -7,7 +11,13 @@ module.exports = {
   },
   module: {
     loaders: [
-      { test: /\.jsx$/, loader: 'jsx-loader?harmony' },
+      {
+        test: /\.jsx$/,
+        loader: 'babel',
+        query: {
+          presets: ['react', 'es2015']
+        }
+      },
       {
         test: /\.scss$/, loaders: [
           'style-loader',
@@ -25,11 +35,11 @@ module.exports = {
       commonjs2: "react",
       amd: "react"
     },
-    "react/addons": {
-      root: "React",
-      commonjs: "react/addons",
-      commonjs2: "react/addons",
-      amd: "react/addons"
+    "react-dom": {
+      root: "ReactDOM",
+      commonjs: "react-dom",
+      commonjs2: "react-dom",
+      amd: "react-dom"
     },
     "jquery": {
       root: "jQuery",
@@ -43,6 +53,7 @@ module.exports = {
     extensions: ['', '.js', '.jsx']
   },
   plugins: [
-    new webpack.optimize.UglifyJsPlugin()
+    new webpack.optimize.UglifyJsPlugin(),
+    definePlugin
   ]
-}
+};

@@ -22,7 +22,7 @@
   ],
   "dependencies": {
     "jquery": ">=1.7 <3",
-    "react": "~0.12",
+    "react": "~0.14",
     "es5-shim": "~4.0.3"
   }
 }
