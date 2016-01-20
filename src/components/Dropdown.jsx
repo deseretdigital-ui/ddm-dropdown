@@ -1,5 +1,6 @@
-var React = require('react/addons');
-var cx = React.addons.classSet;
+var React = require('react');
+var ReactDOM = require('react-dom');
+var cx = require('classnames');
 var $ = require('jquery');
 var DropdownToggle = require('./DropdownToggle');
 var DropdownBody = require('./DropdownBody');
@@ -61,7 +62,7 @@ var Dropdown = React.createClass({
       this.props.onOpen();
     }
 
-    $(this.getDOMNode()).trigger('open.ddm.dropdown');
+    $(ReactDOM.findDOMNode(this)).trigger('open.ddm.dropdown');
   },
 
   close: function() {
@@ -72,7 +73,7 @@ var Dropdown = React.createClass({
       this.props.onClose();
     }
 
-    $(this.getDOMNode()).trigger('close.ddm.dropdown');
+    $(ReactDOM.findDOMNode(this)).trigger('close.ddm.dropdown');
   },
 
   renderToggle: function() {
@@ -80,7 +81,7 @@ var Dropdown = React.createClass({
 
     React.Children.forEach(this.props.children, function(child) {
       if (child.type === DropdownToggle.type) {
-        toggle = React.addons.cloneWithProps(child, {
+        toggle = React.cloneElement(child, {
           open: this.state.open,
           onToggleClick: this.handleClick,
           ref: 'dropdownToggle'
@@ -117,7 +118,7 @@ var Dropdown = React.createClass({
 
     React.Children.forEach(displayChildren, function(child) {
       if (child.type === DropdownBody.type) {
-        body = React.addons.cloneWithProps(child, {
+        body = React.cloneElement(child, {
           ref: 'dropdownBody'
         });
       }
@@ -161,7 +162,7 @@ var Dropdown = React.createClass({
 
   componentDidUpdate: function(prevProps, prevState) {
     if (this.state.open && !prevState.open) {
-      this.refs.dropdownBody.getDOMNode().scrollTop = 0;
+      this.refs.dropdownBody.scrollTop = 0;
     }
 
     if (this.state.open) {
@@ -246,8 +247,10 @@ var Dropdown = React.createClass({
   },
 
   isNodeInComponent: function(node) {
+  	var componentNode = ReactDOM.findDOMNode(this);
+
     while (node) {
-      if (node === this.getDOMNode()) {
+      if (node === componentNode) {
         return true;
       }
       node = node.parentNode;
