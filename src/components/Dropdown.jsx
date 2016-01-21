@@ -80,7 +80,7 @@ var Dropdown = React.createClass({
     var toggle = null;
 
     React.Children.forEach(this.props.children, function(child) {
-      if (child.type === DropdownToggle.type) {
+      if (child.type === DropdownToggle) {
         toggle = React.cloneElement(child, {
           open: this.state.open,
           onToggleClick: this.handleClick,
@@ -111,13 +111,13 @@ var Dropdown = React.createClass({
 
     // Make sure we do not render a dropdownToggle inside of the body
     React.Children.forEach(this.props.children, function(child) {
-      if (child.type !== DropdownToggle.type) {
+      if (child.type !== DropdownToggle) {
         displayChildren.push(child);
       }
     });
 
     React.Children.forEach(displayChildren, function(child) {
-      if (child.type === DropdownBody.type) {
+      if (child.type === DropdownBody) {
         body = React.cloneElement(child, {
           ref: 'dropdownBody'
         });
